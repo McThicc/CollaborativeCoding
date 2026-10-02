@@ -31,7 +31,11 @@ def play_game():
     print("Guess an odd integer between 1 and 1000.")
 
     while True:
-        guess = int(input("Enter your guess: "))
+        try:
+            guess = int(input("Enter your guess: "))
+        except ValueError:
+            print("Please enter a valid number.")
+            continue
 
         result = check_guess(secret_number, guess)
         print(result)
